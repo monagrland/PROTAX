@@ -1,0 +1,67 @@
+####################################################
+# taxonomy file: node_id parent_id level name prior
+####################################################
+
+Note: in this PROTAX version don't define unk nodes, they are automatically added
+
+Example lines from taxonomy for fungi, node_id is running number:
+
+0	0	0	root	1.0000000000
+1	0	1	Fungi	0.9900000000
+2	0	1	nonFungi	0.0100000000
+3	1	2	Fungi,Ascomycota	0.6133024551
+4	1	2	Fungi,Basidiomycota	0.3552838368
+5	1	2	Fungi,Chytridiomycota	0.0092687323
+...
+13	3	3	Fungi,Ascomycota,Archaeorhizomycetes	0.0000150589
+14	3	3	Fungi,Ascomycota,Arthoniomycetes	0.0038475404
+15	3	3	Fungi,Ascomycota,Coniocybomycetes	0.0001957653
+...
+2118	13	4	Fungi,Ascomycota,Archaeorhizomycetes,Archaeorhizomycetales	0.0000150589
+2119	14	4	Fungi,Ascomycota,Arthoniomycetes,Arthoniales	0.0038475404
+2120	15	4	Fungi,Ascomycota,Coniocybomycetes,Coniocybales	0.0001957653
+...
+4970	2118	5	Fungi,Ascomycota,Archaeorhizomycetes,Archaeorhizomycetales,Archaeorhizomycetaceae	0.0000150589
+4971	2119	5	Fungi,Ascomycota,Arthoniomycetes,Arthoniales,Andreiomycetaceae	0.0000150589
+...
+9072	4970	6	Fungi,Ascomycota,Archaeorhizomycetes,Archaeorhizomycetales,Archaeorhizomycetaceae,Archaeorhizomyces_561765	0.0000150589
+9073	4971	6	Fungi,Ascomycota,Arthoniomycetes,Arthoniales,Andreiomycetaceae,Andreiomyces_805807	0.0000150589
+9074	4972	6	Fungi,Ascomycota,Arthoniomycetes,Arthoniales,Arthoniaceae,Amazonomyces_7116	0.0000075294
+...
+19884	9072	7	Fungi,Ascomycota,Archaeorhizomycetes,Archaeorhizomycetales,Archaeorhizomycetaceae,Archaeorhizomyces_561765,Archaeorhizomyces_borealis_807342	0.0000075294
+19885	9072	7	Fungi,Ascomycota,Archaeorhizomycetes,Archaeorhizomycetales,Archaeorhizomycetaceae,Archaeorhizomyces_561765,Archaeorhizomyces_finlayi_561766	0.0000075294
+19886	9073	7	Fungi,Ascomycota,Arthoniomycetes,Arthoniales,Andreiomycetaceae,Andreiomyces_805807,Andreiomyces_morozianus_805808	0.0000075294
+...
+101338	17308	7	Fungi,Basidiomycota,Agaricomycetes,Agaricales,Agaricaceae,Abstoma_19001,Abstoma_fibulaceum_325718	0.0000075294
+101339	17308	7	Fungi,Basidiomycota,Agaricomycetes,Agaricales,Agaricaceae,Abstoma_19001,Abstoma_laevisporum_134795	0.0000075294
+101340	17308	7	Fungi,Basidiomycota,Agaricomycetes,Agaricales,Agaricaceae,Abstoma_19001,Abstoma_pampeanum_134796	0.0000075294
+...
+151365	19881	7	Fungi,Zygomycota,dummy_class_Zygnemomyces,dummy_order_Zygnemomyces,dummy_family_Zygnemomyces,Zygnemomyces_20604,Zygnemomyces_pendulatus_112029	0.0000075294
+151366	19882	7	Fungi,dummy_phylum_Apiosporella,dummy_class_Apiosporella,dummy_order_Apiosporella,dummy_family_Apiosporella,Apiosporella_507135,Apiosporella_urticae_623454	0.0000075294
+151367	19883	7	Fungi,dummy_phylum_Xylocreas,dummy_class_Xylocreas,dummy_order_Xylocreas,dummy_family_Xylocreas,Xylocreas_501605,Xylocreas_elliottii_623263	0.0000075294
+
+####################################################
+# refs.fa: FASTA file
+####################################################
+
+Example:
+
+>SH184509.07FU_UDB016649
+ACACCTCAACTCTCATGGTTCGCCATGATGAGCTTGGACTCTGGGGGTTTTGCTGGCCTGTGGTCGGCTCCCCTCAAATGAATCGGCCTCCCAGTGTTTGGTGGCATCACGGGTGTGATAAATATCTACGCTCACGGTTGTCTGCCAGGTAACCTTTGGTGACAAAGGTTCGCTGGAGCTCACAGATGTCTCTCCTCGGCGAGGACAGCTTTTTTGAAC
+>SH179212.07FU_UDB016651
+AATTCTCAACTCTCCTCAGATTTCATCTGTGTGATGAGCTTGGACTTGGAGGTCTTCTGCTGGCGTTCGCCGGCTCCTCTTGAAATCATTAGCCTTGAGTTGATCTCGATGGCTTGACCGGTGTGATAAACATCTACGCCGATTCATGCCGTCCTGAGCGACGACGTCGGAGACGCTCTGGCTTATAACCGTCTGTCAACAGACAACGCTCTGAAC
+>SH029731.07FU_UDB016652
+ACACCTCAACTCTCATGGTTTGCCATGACGAGCTTGGACTTTGGAGGTCTTGCTGGCCTGTGGTCAGCTCCTCTCAAATGAATCAGCTTGCCAGCGTTTGGTGGCATCGCAGGTGTGATAACCATTTACGCTTGTGTTGTTCTGCCAGGTAACCTTCGGCAATGGAGGTTCGCTGGAGCTCATAAATGTCTCTCCTCAGCGAGGACGGCTCTCTGAAC
+>SH189354.07FU_UDB016653
+ACATCTCAACTCCTCACGGTTTGCCCGTGATGAGCTTGGACTTTGGGGGTCTTGCCGGCCTGCGGGTCGGCTCCTCTCAAATGAATCAGCTTGCCGGTGTTTGGCGGCGTCACAGGTGTGATAACTATCTACGCTTGTGGTTTTCTGCCAGGTAACCTCCAGCAATGGGGATTCACTGGAGCTCACAAATGTCTCTCCTCGATGAGGAAAGCTCTTTGAAC
+
+####################################################
+# seqid2tax: seqid level name (level is the most accurate taxonomic level that annotation reaches)
+####################################################
+
+Example:
+
+SH184509.07FU_UDB016649	7	Fungi,Basidiomycota,Agaricomycetes,Russulales,Peniophoraceae,Peniophora_18201,Peniophora_albobadia_335776
+SH179212.07FU_UDB016651	6	Fungi,Basidiomycota,Agaricomycetes,Thelephorales,Thelephoraceae,Odontia_34083
+SH029731.07FU_UDB016652	6	Fungi,Basidiomycota,Agaricomycetes,Thelephorales,Thelephoraceae,Tomentella_18650
+SH189354.07FU_UDB016653	6	Fungi,Basidiomycota,Agaricomycetes,Thelephorales,Thelephoraceae,Tomentella_18650
