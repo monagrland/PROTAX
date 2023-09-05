@@ -205,26 +205,31 @@ sub createX {
     #my @xweight = ($unkprior/(1-$unkprior)*$n2prior->{$node});
     my @xweight = (1);
 
-    for ($i=0; $i<(scalar(@{$n2cref->{$node}})); $i++) {
-	$cnode = $n2cref->{$node}->[$i];
-	#push(@xweight, $n2prior->{$cnode});
-	push(@xweight, 1);
+    if (!defined $n2cref->{$node}) {
+        # unk only
+        print "n2cref->node undefined for node $node\n";
+    } else {
+        for ($i=0; $i<(scalar(@{$n2cref->{$node}})); $i++) {
+            $cnode = $n2cref->{$node}->[$i];
+            #push(@xweight, $n2prior->{$cnode});
+            push(@xweight, 1);
 
-	if (exists($n2rseqref->{$cnode})) {
-	    if (exists($n2rseqweightref->{$cnode})) {
-		$wref = $n2rseqweightref->{$cnode};
-	    }
-	    else {
-		$wref = [];
-	    }
-	    # calculate mean and max similarity between query seq and child node's refseqs
-	    ($max, $eml) = simMaxEml($qseqid, $n2rseqref->{$cnode}, $wref, $seqsimref, $seq_dont_use);
-	    push(@X, [0, 1, $max, $eml]);
-	}
-	else {
-	    # known taxon without refseqs
-	    push(@X, [1, 0, 0, 0]);
-	}
+            if (exists($n2rseqref->{$cnode})) {
+                if (exists($n2rseqweightref->{$cnode})) {
+                    $wref = $n2rseqweightref->{$cnode};
+                }
+                else {
+                    $wref = [];
+                }
+                # calculate mean and max similarity between query seq and child node's refseqs
+                ($max, $eml) = simMaxEml($qseqid, $n2rseqref->{$cnode}, $wref, $seqsimref, $seq_dont_use);
+                push(@X, [0, 1, $max, $eml]);
+            }
+            else {
+                # known taxon without refseqs
+                push(@X, [1, 0, 0, 0]);
+            }
+        }
     }
     return (\@X, \@xweight);
 }
@@ -418,7 +423,6 @@ for ($k=0; $k<$numseqs; $k++) {
 #	    die ("ERROR: cannot find taxonomy node '$ap->[0]' for qseq '$qseqid'\n");
 #	}
 	print " start ($ap->[0], $ap->[1])\n" if ($debug_mode > 1);
-	
 	$node = $ap->[0];
 	$startlogprob = $ap->[1];
 	computeNodeProb($qseqid, $node, \%n2logprob, $n2cref, $n2lref, $n2ridref, $n2rweightref, $paramvec, $betadim, $startlogprob, $logprob_th, $seqsimref, $n2prior, $unkprior, \%seq_dont_use, $debug_mode);
