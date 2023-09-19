@@ -23,7 +23,7 @@ done
 
 ### MCMC can be run separately (in parallel) for each taxonomy level
 R
-source("../protaxscripts/amcmc.rcode.txt")
+source("../protaxscripts/amcmc.rcode.r")
 library(compiler)
 logprior=cmpfun(logprior)
 loglikelihood=cmpfun(loglikelihood)
